@@ -2,3 +2,5 @@ obj/
 bin/
 *.exe
 *.layout
+*.o
+.vscode
