@@ -1,51 +1,56 @@
-#include "Matrix.h"
+#ifdef __APPLE__
+#include <GLUT/glut.h>
+#else
+#include <windows.h>
+#include <GL/glut.h>
+#endif
+
+#include "Point.h"
+#include "Line.h"
+
 #include <stdio.h>
 
-void print_matrix(Matrix *m) {
-    for(int i = 0; i < m->getRows(); i++) {
-        for(int j = 0; j < m->getCols(); j++) {
-            printf("%d ", m->getValue(i, j));
-        }
+void init() {
+    glClearColor(1.0, 1.0, 1.0, 1.0);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluOrtho2D(-5000,5000,-5000,5000);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
 
-        printf("\n");
-    }
+    glPointSize(1.0);
+}
+
+Point p0 = Point(0, 0);
+Point p1 = Point(-500, -500);
+Line l = Line(&p0, &p1);
+
+void draw_function() {
+    glClear(GL_COLOR_BUFFER_BIT);
+    glColor3f(1.0, 0.0, 0.0);
+
+    //p0.draw();
+    //p1.draw();
+
+    l.draw();
+
+    glFlush();
+    glutSwapBuffers();
 }
 
 int main(int argc, char **argv) {
-    Matrix a(3, 3);
-    Matrix b(3, 4);
+    glutInit(&argc, argv);
 
-    a.setValue(0, 0, 1);
-    a.setValue(0, 1, 0);
-    a.setValue(0, 2, 2);
-    a.setValue(1, 0, 0);
-    a.setValue(1, 1, 1);
-    a.setValue(1, 2, 3);
-    a.setValue(2, 0, 0);
-    a.setValue(2, 1, 0);
-    a.setValue(2, 2, 1);
+    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+    glutInitWindowPosition(100,100);
+    glutInitWindowSize(1000, 1000);
+    glutCreateWindow("Parcial 1");
 
-    print_matrix(&a);
-    printf("\n");
+    init();
 
-    b.setValue(0, 0, 5);
-    b.setValue(0, 1, 6);
-    b.setValue(0, 2, 7);
-    b.setValue(0, 3, 9);
-    b.setValue(1, 0, 4);
-    b.setValue(1, 1, 2);
-    b.setValue(1, 2, 8);
-    b.setValue(1, 3, 3);
-    b.setValue(2, 0, 1);
-    b.setValue(2, 1, 1);
-    b.setValue(2, 2, 1);
-    b.setValue(2, 3, 1);
-
-    print_matrix(&b);
-    printf("\n");
-
-    Matrix *c = a.multiply(&b);
-    print_matrix(c);
+    glutDisplayFunc(draw_function);
+    glutIdleFunc(draw_function);
+    glutMainLoop();
 
     return 0;
 }

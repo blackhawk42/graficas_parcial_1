@@ -10,6 +10,8 @@ class Line{
 	public:
 		Line(Point *p0, Point *p1);
 		~Line();
+
+		void draw();
 };
 
 #endif // LINE_H

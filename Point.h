@@ -14,6 +14,8 @@ class Point{
 
 		int getY();
 		void setY(int val);
+
+		void draw();
 };
 
 #endif // POINT_H
