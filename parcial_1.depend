@@ -1,11 +1,14 @@
 # depslib dependency file v1.0
-1584516252 source:d:\dev\graficos\parcial_1\circle.cpp
+1584764203 source:d:\dev\graficos\parcial_1\circle.cpp
+	<GLUT/glut.h>
+	<windows.h>
+	<GL/glut.h>
 	"Circle.h"
 	<cmath>
 	"Point.h"
 	"Line.h"
 
-1584515791 d:\dev\graficos\parcial_1\circle.h
+1584764130 d:\dev\graficos\parcial_1\circle.h
 	"Point.h"
 	"Line.h"
 
@@ -22,11 +25,15 @@
 	"Point.h"
 	<cmath>
 
-1584678163 source:d:\dev\graficos\parcial_1\main.cpp
+1584764518 source:d:\dev\graficos\parcial_1\main.cpp
 	<GLUT/glut.h>
 	<windows.h>
 	<GL/glut.h>
 	"Point.h"
+	"Line.h"
+	"Circle.h"
+	"Triangle.h"
+	"Square.h"
 	<stdio.h>
 
 1442892964 d:\dev\opengl\glut\include\gl\glut.h
@@ -45,21 +52,25 @@
 	<GL/glut.h>
 	"Point.h"
 
-1584513563 source:d:\dev\graficos\parcial_1\square.cpp
+1584764958 source:d:\dev\graficos\parcial_1\square.cpp
+	<GLUT/glut.h>
+	<windows.h>
+	<GL/glut.h>
 	"Square.h"
 	"Point.h"
 	"Line.h"
+	<stdio.h>
 
-1584513476 d:\dev\graficos\parcial_1\square.h
+1584763938 d:\dev\graficos\parcial_1\square.h
 	"Point.h"
 	"Line.h"
 
-1584513432 source:d:\dev\graficos\parcial_1\triangle.cpp
+1584764287 source:d:\dev\graficos\parcial_1\triangle.cpp
 	"Triangle.h"
 	"Point.h"
 	"Line.h"
 
-1584513742 d:\dev\graficos\parcial_1\triangle.h
+1584764228 d:\dev\graficos\parcial_1\triangle.h
 	"Point.h"
 	"Line.h"
 

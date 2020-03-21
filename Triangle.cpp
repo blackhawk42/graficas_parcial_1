@@ -28,3 +28,9 @@ Point *Triangle::getPoint1() {
 Point *Triangle::getPoint2() {
 	return this->p2;
 }
+
+void Triangle::draw() {
+    this->l0->draw();
+    this->l1->draw();
+    this->l2->draw();
+}

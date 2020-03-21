@@ -17,6 +17,8 @@ class Square {
 		Point *getPoint1();
 		Point *getPoint2();
 		Point *getPoint3();
+
+		void draw();
 };
 
 

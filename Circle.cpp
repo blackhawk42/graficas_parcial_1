@@ -1,3 +1,10 @@
+#ifdef __APPLE__
+#include <GLUT/glut.h>
+#else
+#include <windows.h>
+#include <GL/glut.h>
+#endif
+
 #include "Circle.h"
 
 #define _USE_MATH_DEFINES
@@ -54,4 +61,10 @@ Point **Circle::getPoints() {
 }
 Line **Circle::getLines(){
 	return this->lines;
+}
+
+void Circle::draw() {
+    for(int i = 0; i < this->resolution; i++) {
+        this->lines[i]->draw();
+    }
 }

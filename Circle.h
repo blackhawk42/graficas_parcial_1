@@ -23,6 +23,8 @@ class Circle
 		int getResolution();
 		Point **getPoints();
 		Line **getLines();
+
+		void draw();
 };
 
 #endif // CIRCLE_H

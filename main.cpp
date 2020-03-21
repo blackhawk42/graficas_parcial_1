@@ -7,6 +7,9 @@
 
 #include "Point.h"
 #include "Line.h"
+#include "Circle.h"
+#include "Triangle.h"
+#include "Square.h"
 
 #include <stdio.h>
 
@@ -21,18 +24,18 @@ void init() {
     glPointSize(1.0);
 }
 
-Point p0 = Point(0, 0);
-Point p1 = Point(-500, -500);
-Line l = Line(&p0, &p1);
+Point p0 = Point(10*50, 10*50);
+Point p1 = Point(5*50, 10*50);
+Point p2 = Point(5*50, 5*50);
+Point p3 = Point(10*50, 5*50);
+
+Circle c = Circle(&p0, 500, 10);
 
 void draw_function() {
     glClear(GL_COLOR_BUFFER_BIT);
     glColor3f(1.0, 0.0, 0.0);
 
-    //p0.draw();
-    //p1.draw();
-
-    l.draw();
+    c.draw();
 
     glFlush();
     glutSwapBuffers();
