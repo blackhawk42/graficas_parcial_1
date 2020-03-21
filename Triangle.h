@@ -6,9 +6,9 @@
 
 class Triangle {
 	private:
-		Point *p0, *p1, *p2;
+		Point p0, p1, p2;
 
-		Line *l0, *l1, *l2;
+		Line l0, l1, l2;
 
 	public:
 		Triangle(Point *p0, Point *p1, Point *p2);

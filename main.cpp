@@ -29,15 +29,13 @@ Point p1 = Point(5*50, 10*50);
 Point p2 = Point(5*50, 5*50);
 Point p3 = Point(10*50, 5*50);
 
-Square sq = Square(&p0, 200);
+Triangle t = Triangle(&p1, &p2, &p3);
 
 void draw_function() {
     glClear(GL_COLOR_BUFFER_BIT);
     glColor3f(1.0, 0.0, 0.0);
 
-    sq.draw();
-
-    sq.setLength(sq.getLength() + 1);
+    t.draw();;
 
     glFlush();
     glutSwapBuffers();

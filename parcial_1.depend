@@ -25,7 +25,7 @@
 	"Point.h"
 	<cmath>
 
-1584766124 source:d:\dev\graficos\parcial_1\main.cpp
+1584771275 source:d:\dev\graficos\parcial_1\main.cpp
 	<GLUT/glut.h>
 	<windows.h>
 	<GL/glut.h>
@@ -52,10 +52,7 @@
 	<GL/glut.h>
 	"Point.h"
 
-1584765996 source:d:\dev\graficos\parcial_1\square.cpp
-	<GLUT/glut.h>
-	<windows.h>
-	<GL/glut.h>
+1584770595 source:d:\dev\graficos\parcial_1\square.cpp
 	"Square.h"
 	"Point.h"
 	"Line.h"
@@ -69,7 +66,7 @@
 	"Point.h"
 	"Line.h"
 
-1584768247 d:\dev\graficos\parcial_1\triangle.h
+1584771028 d:\dev\graficos\parcial_1\triangle.h
 	"Point.h"
 	"Line.h"
 
