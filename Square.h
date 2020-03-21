@@ -8,8 +8,8 @@ class Square {
 	private:
 	    int length;
 
-		Point *p0, *p1, *p2, *p3;
-		Line *l0, *l1, *l2, *l3;
+		Point p0, p1, p2, p3;
+		Line l0, l1, l2, l3;
 
 	public:
 		Square(Point *p0, int length);
