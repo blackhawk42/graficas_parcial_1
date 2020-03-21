@@ -10,13 +10,15 @@
 #include "Point.h"
 #include "Line.h"
 
-#include <stdio.h>
 
-Square::Square(Point *p0, Point *p1, Point *p2, Point *p3) {
-	this->p0 = p0;
-	this->p1 = p1;
-	this->p2 = p2;
-	this->p3 = p3;
+Square::Square(Point *p0, int length) {
+    this->length = length;
+
+
+    this->p0 = new Point(p0->getX(), p0->getY());
+	this->p1 = new Point(p0->getX() + length, p0->getY());
+	this->p2 = new Point(this->p1->getX(), this->p1->getY() + length);
+	this->p3 = new Point(this->p2->getX() - length, this->p2->getY());
 
 	this->l0 = new Line(this->p0, this->p1);
 	this->l1 = new Line(this->p1, this->p2);
@@ -26,6 +28,11 @@ Square::Square(Point *p0, Point *p1, Point *p2, Point *p3) {
 }
 
 Square::~Square() {
+    delete this->p0;
+    delete this->p1;
+    delete this->p2;
+    delete this->p3;
+
 	delete this->l0;
 	delete this->l1;
 	delete this->l2;
@@ -43,6 +50,21 @@ Point *Square::getPoint2() {
 }
 Point *Square::getPoint3() {
 	return this->p3;
+}
+
+int Square::getLength() {
+    return this->length;
+}
+
+void Square::setLength(int length) {
+    this->length = length;
+
+	this->p1->setX(p0->getX() + length);
+	this->p1->setY(p0->getY());
+	this->p2->setX(this->p1->getX());
+	this->p2->setY(this->p1->getY() + length);
+	this->p3->setX(this->p2->getX() - length);
+	this->p3->setY(this->p2->getY());
 }
 
 void Square::draw() {
