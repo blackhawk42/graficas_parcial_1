@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1584764203 source:d:\dev\graficos\parcial_1\circle.cpp
+1584908934 source:d:\dev\graficos\parcial_1\circle.cpp
 	<GLUT/glut.h>
 	<windows.h>
 	<GL/glut.h>
@@ -7,12 +7,15 @@
 	<cmath>
 	"Point.h"
 	"Line.h"
+	"PointTransformer.h"
 
-1584764130 d:\dev\graficos\parcial_1\circle.h
+1584908837 d:\dev\graficos\parcial_1\circle.h
 	"Point.h"
 	"Line.h"
+	"PointTransformer.h"
 
-1584676041 d:\dev\graficos\parcial_1\point.h
+1584780086 d:\dev\graficos\parcial_1\point.h
+	"Matrix.h"
 
 1584680140 d:\dev\graficos\parcial_1\line.h
 	"Point.h"
@@ -25,7 +28,7 @@
 	"Point.h"
 	<cmath>
 
-1584771275 source:d:\dev\graficos\parcial_1\main.cpp
+1584908411 source:d:\dev\graficos\parcial_1\main.cpp
 	<GLUT/glut.h>
 	<windows.h>
 	<GL/glut.h>
@@ -34,39 +37,59 @@
 	"Circle.h"
 	"Triangle.h"
 	"Square.h"
+	"PointTransformer.h"
 	<stdio.h>
+	<cmath>
+	<chrono>
+	<thread>
 
 1442892964 d:\dev\opengl\glut\include\gl\glut.h
 	<windows.h>
 	<GL/gl.h>
 	<GL/glu.h>
 
-1584171034 source:d:\dev\graficos\parcial_1\matrix.cpp
+1584907354 source:d:\dev\graficos\parcial_1\matrix.cpp
 	"Matrix.h"
+	<stdio.h>
 
-1584211991 d:\dev\graficos\parcial_1\matrix.h
+1584783926 d:\dev\graficos\parcial_1\matrix.h
 
-1584676218 source:d:\dev\graficos\parcial_1\point.cpp
+1584780436 source:d:\dev\graficos\parcial_1\point.cpp
 	<GLUT/glut.h>
 	<windows.h>
 	<GL/glut.h>
 	"Point.h"
 
-1584770595 source:d:\dev\graficos\parcial_1\square.cpp
+1584908607 source:d:\dev\graficos\parcial_1\square.cpp
 	"Square.h"
 	"Point.h"
 	"Line.h"
+	"PointTransformer.h"
 
-1584770191 d:\dev\graficos\parcial_1\square.h
+1584908331 d:\dev\graficos\parcial_1\square.h
 	"Point.h"
 	"Line.h"
+	"PointTransformer.h"
 
-1584768243 source:d:\dev\graficos\parcial_1\triangle.cpp
+1584904096 source:d:\dev\graficos\parcial_1\triangle.cpp
 	"Triangle.h"
 	"Point.h"
 	"Line.h"
+	"PointTransformer.h"
 
-1584771028 d:\dev\graficos\parcial_1\triangle.h
+1584828568 d:\dev\graficos\parcial_1\triangle.h
 	"Point.h"
 	"Line.h"
+	"PointTransformer.h"
+
+1584903489 d:\dev\graficos\parcial_1\pointtransformer.h
+	"Matrix.h"
+	"Point.h"
+
+1584907488 source:d:\dev\graficos\parcial_1\pointtransformer.cpp
+	"PointTransformer.h"
+	"Matrix.h"
+	"Point.h"
+	<cmath>
+	<stdio.h>
 

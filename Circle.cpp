@@ -12,8 +12,11 @@
 
 #include "Point.h"
 #include "Line.h"
+#include "PointTransformer.h"
 
-Circle::Circle(Point *origin, int radius, int resolution) {
+Circle::Circle(Point *origin, int radius, int resolution):
+    pt(origin)
+{
 	this->origin = origin;
 	this->radius = radius;
 	this->resolution = resolution;
@@ -66,5 +69,29 @@ Line **Circle::getLines(){
 void Circle::draw() {
     for(int i = 0; i < this->resolution; i++) {
         this->lines[i]->draw();
+    }
+}
+
+void Circle::translation(int dx, int dy) {
+    this->pt.translation(dx, dy);
+
+    for(int i = 0; i < this->resolution; i++) {
+        this->pt.apply(this->points[i]);
+    }
+}
+
+void Circle::scaling(double factor) {
+    this->pt.scaling(factor, factor);
+
+    for(int i = 0; i < this->resolution; i++) {
+        this->pt.apply(this->points[i]);
+    }
+}
+
+void Circle::rotation(double angle) {
+    this->pt.rotation(angle);
+
+    for(int i = 0; i < this->resolution; i++) {
+        this->pt.apply(this->points[i]);
     }
 }

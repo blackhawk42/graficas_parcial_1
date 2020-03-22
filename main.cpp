@@ -10,8 +10,11 @@
 #include "Circle.h"
 #include "Triangle.h"
 #include "Square.h"
+#include "PointTransformer.h"
 
+#define _USE_MATH_DEFINES
 #include <stdio.h>
+#include <cmath>
 
 void init() {
     glClearColor(1.0, 1.0, 1.0, 1.0);
@@ -24,18 +27,33 @@ void init() {
     glPointSize(1.0);
 }
 
-Point p0 = Point(10*50, 10*50);
-Point p1 = Point(5*50, 10*50);
-Point p2 = Point(5*50, 5*50);
-Point p3 = Point(10*50, 5*50);
+Point p0 = Point(10*70, 10*70);
+Point p1 = Point(5*70, 10*70);
+Point p2 = Point(5*70, 5*70);
+Point p3 = Point(10*70, 5*70);
 
-Triangle t = Triangle(&p1, &p2, &p3);
+Circle t = Circle(&p0, 500, 200);
+
+double degree2radians(double degree) {
+    return degree*(M_PI/180);
+}
+
+double scale = 1.5;
 
 void draw_function() {
     glClear(GL_COLOR_BUFFER_BIT);
     glColor3f(1.0, 0.0, 0.0);
 
-    t.draw();;
+    t.draw();
+    t.translation(-50, -50);
+    //if(scale < 2) {
+    //    scale = 2;
+    //}
+    //else {
+     //   scale = 0.5;
+    //}
+    //t.scaling(scale);
+    //t.rotation(degree2radians(45));
 
     glFlush();
     glutSwapBuffers();

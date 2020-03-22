@@ -50,6 +50,8 @@
 		<Unit filename="Matrix.h" />
 		<Unit filename="Point.cpp" />
 		<Unit filename="Point.h" />
+		<Unit filename="PointTransformer.cpp" />
+		<Unit filename="PointTransformer.h" />
 		<Unit filename="Square.cpp" />
 		<Unit filename="Square.h" />
 		<Unit filename="Triangle.cpp" />

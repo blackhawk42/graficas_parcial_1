@@ -1,12 +1,13 @@
 #include "Matrix.h"
+#include <stdio.h>
 
 Matrix::Matrix(int rows, int cols) {
 	this->rows = rows;
 	this->cols = cols;
 
-	this->mat = new int*[rows];
+	this->mat = new double*[rows];
 	for(int i = 0; i < rows; i++) {
-		this->mat[i] = new int[cols];
+		this->mat[i] = new double[cols];
 	}
 }
 
@@ -14,7 +15,7 @@ Matrix::~Matrix() {
 	for(int i = 0; i < this->rows; i++) {
 		delete[] this->mat[i];
 	}
-	
+
 	delete[] this->mat;
 }
 
@@ -26,7 +27,7 @@ int Matrix::getCols() {
 	return this->cols;
 }
 
-int Matrix::getValue(int row, int col) {
+double Matrix::getValue(int row, int col) {
 	if(row < 0 || col < 0) {
 		throw 1;
 	}
@@ -38,7 +39,7 @@ int Matrix::getValue(int row, int col) {
 	return this->mat[row][col];
 }
 
-void Matrix::setValue(int row, int col, int val) {
+void Matrix::setValue(int row, int col, double val) {
 	if(row < 0 || col < 0) {
 		throw 1;
 	}
@@ -57,7 +58,7 @@ Matrix *Matrix::multiply(Matrix *other) {
 
 	Matrix *result = new Matrix(this->rows, other->cols);
 
-	int dot_product;
+	double dot_product;
 	for(int i = 0; i < this->rows; i++) {
 		for(int j = 0; j < other->cols; j++) {
 			dot_product = 0;

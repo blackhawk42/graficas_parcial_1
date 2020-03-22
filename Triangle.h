@@ -3,9 +3,12 @@
 
 #include "Point.h"
 #include "Line.h"
+#include "PointTransformer.h"
 
 class Triangle {
 	private:
+	    PointTransformer pt;
+
 		Point p0, p1, p2;
 
 		Line l0, l1, l2;
@@ -19,6 +22,10 @@ class Triangle {
 		Point *getPoint2();
 
 		void draw();
+
+		void translation(int dx, int dy);
+		void scaling(double factor);
+		void rotation(double angle);
 };
 
 #endif // TRIANGLE_H

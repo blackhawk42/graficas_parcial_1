@@ -3,10 +3,12 @@
 
 #include "Point.h"
 #include "Line.h"
+#include "PointTransformer.h"
 
 class Square {
 	private:
 	    int length;
+	    PointTransformer pt;
 
 		Point p0, p1, p2, p3;
 		Line l0, l1, l2, l3;
@@ -24,6 +26,10 @@ class Square {
 		void setLength(int length);
 
 		void draw();
+
+		void translation(int dx, int dy);
+		void scaling(double factor);
+		void rotation(double angle);
 };
 
 

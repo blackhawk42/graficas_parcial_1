@@ -3,6 +3,7 @@
 
 #include "Point.h"
 #include "Line.h"
+#include "PointTransformer.h"
 
 class Circle
 {
@@ -10,6 +11,8 @@ class Circle
 		int resolution;
 		int radius;
 		Point *origin;
+
+		PointTransformer pt;
 
 		Point **points;
 		Line **lines;
@@ -25,6 +28,10 @@ class Circle
 		Line **getLines();
 
 		void draw();
+
+		void translation(int dx, int dy);
+		void scaling(double factor);
+		void rotation(double angle);
 };
 
 #endif // CIRCLE_H

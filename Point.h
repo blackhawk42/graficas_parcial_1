@@ -1,6 +1,8 @@
 #ifndef POINT_H
 #define POINT_H
 
+#include "Matrix.h"
+
 class Point{
 	private:
 		int x, y;

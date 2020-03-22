@@ -4,8 +4,8 @@
 class Matrix {
 	private:
 		int rows, cols;
-		int **mat;
-	
+		double **mat;
+
 	public:
 		Matrix(int rows, int cols);
 		~Matrix();
@@ -13,8 +13,8 @@ class Matrix {
 		int getRows();
 		int getCols();
 
-		int getValue(int row, int col);
-		void setValue(int row, int col, int val);
+		double getValue(int row, int col);
+		void setValue(int row, int col, double val);
 
 		Matrix *multiply(Matrix *other);
 };
