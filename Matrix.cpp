@@ -1,5 +1,4 @@
 #include "Matrix.h"
-#include <stdio.h>
 
 Matrix::Matrix(int rows, int cols) {
 	this->rows = rows;

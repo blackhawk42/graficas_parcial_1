@@ -5,18 +5,6 @@
 
 #include <cmath>
 
-#include <stdio.h>
-
-void print_matrix(Matrix *m) {
-    for(int i = 0; i < m->getRows(); i++) {
-        for(int j = 0; j < m->getCols(); j++) {
-            printf("%f ", m->getValue(i, j));
-        }
-        printf("\n");
-    }
-    printf("\n");
-}
-
 Matrix PointTransformer::standardIdentity = Matrix(3, 3);
 Matrix PointTransformer::translationIdentity = Matrix(3, 3);
 Matrix PointTransformer::scalingIdentity = Matrix(3, 3);
