@@ -1,0 +1,68 @@
+\documentclass[12pt,a4paper,titlepage]{article}
+
+% Localización
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+% Comillas y bibliografía
+\usepackage[spanish=mexican]{csquotes}
+\usepackage[style=apa,sortcites=true,sorting=nyt,language=spanish]{biblatex}
+\DeclareLanguageMapping{spanish}{spanish-apa}
+\DeclareFieldFormat*{citetitle}{\textit{#1}} % Citar títulos en itálicas
+\addbibresource{\jobname.bib}
+
+\usepackage{graphicx}
+\graphicspath{ {img/} }
+\usepackage{float} % Define H para floats
+
+\usepackage{amsmath}
+
+% Código
+\usepackage{listings}
+\lstset{
+	basicstyle=\footnotesize\ttfamily,
+	breaklines=true,
+	frame=single,
+	numbers=left,
+	numberstyle=\small,
+}
+%\lstinputlisting[language=C++, linerange=18-23, firstnumber=18]{../main.cpp}
+
+% Comando \tab{}
+%\usepackage{tabto}
+
+\usepackage{microtype}
+
+%\usepackage[hyphens]{url}
+\usepackage[hidelinks]{hyperref}
+
+\begin{document}
+\input{tex/titlepage}
+
+
+
+%Warping y figura
+%\begin{wrapfigure}{r}{0.3\textwidth}
+%  \vspace{-20pt}
+%  \begin{center}
+%    \includegraphics[width=0.2\textwidth]{cavendish.jpg}
+%  \end{center}
+%  \vspace{-20pt}
+%  \caption{Henry Cavendish, descubridor del hidrógeno}
+%  \vspace{-10pt}
+%\end{wrapfigure}
+%
+%\begin{figure}[h]
+%  \centering
+%    \reflectbox{%
+%      \includegraphics[width=0.5\textwidth]{gull}}
+%  \caption{A picture of the same gull
+%           looking the other way!}
+%\end{figure}
+
+%\clearpage
+%\printbibliography
+\end{document}
