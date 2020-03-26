@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1584908934 source:d:\dev\graficos\parcial_1\circle.cpp
+1584909148 source:d:\dev\graficos\parcial_1\circle.cpp
 	<GLUT/glut.h>
 	<windows.h>
 	<GL/glut.h>
@@ -28,20 +28,11 @@
 	"Point.h"
 	<cmath>
 
-1584908411 source:d:\dev\graficos\parcial_1\main.cpp
+1585096848 source:d:\dev\graficos\parcial_1\main.cpp
 	<GLUT/glut.h>
 	<windows.h>
 	<GL/glut.h>
-	"Point.h"
-	"Line.h"
-	"Circle.h"
-	"Triangle.h"
-	"Square.h"
-	"PointTransformer.h"
-	<stdio.h>
-	<cmath>
-	<chrono>
-	<thread>
+	"Scene.h"
 
 1442892964 d:\dev\opengl\glut\include\gl\glut.h
 	<windows.h>
@@ -86,10 +77,24 @@
 	"Matrix.h"
 	"Point.h"
 
-1584907488 source:d:\dev\graficos\parcial_1\pointtransformer.cpp
+1585175444 source:d:\dev\graficos\parcial_1\pointtransformer.cpp
 	"PointTransformer.h"
 	"Matrix.h"
 	"Point.h"
 	<cmath>
 	<stdio.h>
+
+1585175380 source:d:\dev\graficos\parcial_1\scene.cpp
+	"Scene.h"
+	"Point.h"
+	"Square.h"
+	"Triangle.h"
+	"Circle.h"
+	<cmath>
+
+1585178540 d:\dev\graficos\parcial_1\scene.h
+	"Square.h"
+	"Triangle.h"
+	"Circle.h"
+	"Point.h"
 

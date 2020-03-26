@@ -84,12 +84,8 @@ void PointTransformer::scaling(double sx, double sy) {
     this->translationIdentity.setValue(0, 2, this->pivot->getX());
     this->translationIdentity.setValue(1, 2, this->pivot->getY());
 
-    printf("Scaling\n");
-    print_matrix(&this->translationIdentity);
-
     this->scalingIdentity.setValue(0, 0, sx);
     this->scalingIdentity.setValue(1, 1, sy);
-    print_matrix(&this->scalingIdentity);
 
     delete this->current;
     this->current = (&this->translationIdentity)->multiply(&this->scalingIdentity);

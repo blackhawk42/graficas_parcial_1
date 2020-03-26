@@ -52,6 +52,8 @@
 		<Unit filename="Point.h" />
 		<Unit filename="PointTransformer.cpp" />
 		<Unit filename="PointTransformer.h" />
+		<Unit filename="Scene.cpp" />
+		<Unit filename="Scene.h" />
 		<Unit filename="Square.cpp" />
 		<Unit filename="Square.h" />
 		<Unit filename="Triangle.cpp" />
