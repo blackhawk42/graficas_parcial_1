@@ -1,0 +1,85 @@
+\section{Figuras geométricas}
+\label{figuras_geometricas}
+
+Todas las clases para figuras geométricas implementan al menos cuatro métodos:
+\begin{itemize}
+	\item Las funciones de transformación:
+	\begin{itemize}
+		\item \lstinline!void translation(int dx, int dy)!
+		\item \lstinline!void scaling(double factor)!
+		\item \lstinline!void rotation(double angle)!
+	\end{itemize}
+	\item La función de dibujado: \lstinline!void draw()!
+\end{itemize}
+
+Los detalles de implementación le corresponden a cada clase individual\footnote{Nótese
+que esto es lo que en programación orientada a objetos se le llama una interfaz. Siguiendo
+el consejo que se me dió en clase, decidí no luchar con C++ para implementarlo en el
+código. Sin embargo, el hecho de que las estoy usando en todo pero en nombre demuestra
+que mucho del poder del modelo orientado a objetos es simplemente en forzar al programador
+a diseñar.}.
+
+A pesar de esto, se sigue un patrón general en todas las figuras. Las funciones de
+transformación simplemente llaman al \lstinline!PointTransformer! interno de la figura
+y, úna vez calculada la matriz necesaria, la aplican a todos sus puntos. Todas las
+figuras definen líneas, y el dibujo se logra simplemente llamando a la función
+\lstinline!draw()! de cada una.
+
+El pivote de las transformaciones es es definido al momento de creación y
+fijo durante la vida del objeto. Esto siguiendo la recomendación vista en clase,
+con el fin de mantenerlo simple. De ser necesario, sería trivial implementar métodos
+para cambiar el pivote.
+
+En todos los casos en los que se piden punteros a puntos, el punto es copiado a
+una estructura interna; actualmente, instancias de \lstinline!Point! internas, aunque
+podría cambiarse de ser necesario. Es decir, cambiar el punto externo del que se derivó
+la figura no cambiará a la figura de ningún modo. Esto simplifica el manejo de memoria,
+permite la reutilización de puntos externos y, mucho más importante, mantiene conceptos
+de buen diseño como la encapsulación. De ser necesario, normalmente se implementan
+métodos tipo \lstinline!get! para acceder a los puntos y cambiarlos directamente,
+aunque obviamente se recomienda usar las funciones estándar cuando se pueda.
+
+\subsection{La clase \lstinline!Circle!}
+
+La clase \lstinline!Circle! implementa un círculo. Está definida en los archivos
+\lstinline!Circle.h! y \lstinline!Circle.cpp!.
+
+El constructor de la clase requiere tres parámetros: \lstinline!Point *origin!, el
+punto de origen del círculo (i. e., el ``centro''), \lstinline!int radius!, el radio
+del círculo, y \lstinline!resolution!, lo que he llamado la resolución.
+
+Un círculo consiste en un número de puntos dibujados en torno al origen, usando
+coordenadas polares. Cada punto se conecta al que le sigue por medio de una línea.
+(El último punto se conecta al primero.) Una mayor resolución significa más puntos y,
+por lo tanto, un círculo más suave.
+
+Para dibujar el círculo, simplemente se itera la lista de lineas y, por cada una,
+se le llama a su método \lstinline!draw()!.
+
+Debido a su naturaleza dinámica, ésta es una de las pocas clases que requirió alojamiento
+dinámico.
+
+\subsection{La clase \lstinline!Triangle!}
+
+La clase \lstinline!Triangle! implementa un triángulo. Está definida en los archivos
+\lstinline!Triangle.h! y \lstinline!Triangle.cpp!.
+
+Durante su creación, un triángulo sólo pide tres puntos arbitrarios, \lstinline!Point *p0!,
+\lstinline!Point *p1! y \lstinline!Point *p2!. Esto se consideró más simple y flexible
+que tratar de implementar toda clase de cálculos para definir triángulos arbitrarios.
+
+
+\subsection{La clase \lstinline!Square!}
+
+La clase \lstinline!Square! implementa un cuadrado. Está definida en los archivos
+\lstinline!Square.h! y \lstinline!Square.cpp!.
+
+Su constructor solicita el primer punto (la esquina inferior izquierda), \lstinline!Point p0!, y la longitud
+de los lados del cuadrado, \lstinline!int length!.
+
+Se decidió en contra de lados de diferentes longitudes simplemente para adherirse a la
+especificación: se pidió un cuadrado, no rectángulos o cuadriláteros arbitrarios.
+Por qué detenerse ahí: podrían implementarse polígonos arbitrarios con una lista dinámica
+de puntos y... No, méjor pararle en lo que dicen las instrucciones, en algún lado
+se tiene que hacer.
+De ser necesario, no sería muy difícil extenderlo.

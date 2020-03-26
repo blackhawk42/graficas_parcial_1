@@ -33,7 +33,7 @@ representa una buena o mala práctica en C++.}.
 Se usa el algoritmo $O(n^3)$, el más simple y menos eficiente en términos de complejidad de tiempo.
 Se nos informó en clase que éste sería suficiente, y en la práctica parece serlo.
 
-Notablemente, esta clase es la única que requirió el uso de alocamiento dinámico de
+Notablemente, esta clase es una de las pocas que requirió el uso de alojamiento dinámico de
 memoria (i. e., las palabras clave \lstinline!new! y \lstinline!delete!). Esto
 debido a la naturaleza dinámica de las matrices durante su creación y a que la multiplicación
 regresa una matriz nueva, en vez de modificar otra como su resultado. Afortunadamente,
@@ -93,3 +93,13 @@ si se necesitaran hacer varias transformaciones individuales al mismo tiempo (e.
 un sistema multihilo). Afortunadamente, no se mencionó nada sobre esto en los requerimientos,
 por lo que se determinó que este sistema cumplía con su objetivo de eficiencia dadas
 las circunstancias actuales.
+
+Un último detalle: parece haber un bug en la rotación. Por alguna razón, rotar una figura
+parece hacerla cada vez más pequeña. Puede ser controlado con un escalamiento con
+un factor de aproximadamente 1.5 seguido de la rotación, pero esto es obviamente lejos
+de ideal. Sospecho que el problema se debe a errores de operaciones de punto flotante
+con las que no sé lidiar, pero desconozco con certeza. De nuevo, es un error controlable\footnote{De
+hecho, lo exploté para dar efecto a una animación que se me ocurrió: una hojita volando
+y desapareciendo en el aire. El resultado es precisamente artístico, pero fue interesante
+poner en práctica el viejo dicho ``¡No es un bug, es una feature!''},
+pero muy lejos de ideal, y algo que debo identificar y mejorar para lecciones futuras.
