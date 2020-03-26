@@ -1,0 +1,38 @@
+\section{Primitivas de dibujo: puntos y líneas}
+\label{primitivas_dibujo}
+
+\subsubsection{La clase \lstinline!Point!}
+
+La clase \lstinline!Point! se encarga de representar puntos. Está definida en
+los archivos \lstinline!Point.h! y \lstinline!Point.cpp!.
+
+Un punto es poco más que un contenedor para dos números: una tupla de coordenadas
+cartesianas $(x, y)$. Por supuesto, se implementan funciones \lstinline!set! y
+\lstinline!get! para cada coordenada.
+
+También implementa el método \lstinline!void Point::draw()!, que simplemente dibuja
+el punto en sus coordenadas, usando las funciónes apropiadas de OpenGL/GLUT, las
+únicas que se nos permitió usar. Es la única
+otra clase después de \lstinline!Line! que requiere de estas funciones. En la práctica,
+\lstinline!Line! hace todo el trabajo de dibujar en el programa, por lo que ésta
+función no se usa. No obstante, se dejó definida por razones de completitud conceptual.
+
+\subsection{La clase \lstinline!Line!}
+
+La clase \lstinline!Line! se encarga de definir y dibujar líneas. Está definida en
+los archivos \lstinline!Line.h! y \lstinline!Line.cpp!.
+
+Una línea está definida por dos puntos, pasados en el constructor: \lstinline!Line::Line(Point *p0, Point *p1)!.
+Nótese que se pasan \emph{punteros} a los puntos. A diferencia de otros objetos en este
+sistema, los valores de los puntos no se copian a una estructura interna. Toda modificación
+en los puntos hechos en el exterior se reflejarán en la línea dibujada. Esto, en contraste
+a lo que los punteros tienden a hacer, siento que simplifica el diseño: una vez
+definida una línea, no tienes que preocuparte de ella otra vez. Modifica los puntos en
+el exterior, y la línea se actualizará automáticamente cáda vez que se dibuje.
+
+La parte más importante es el método \lstinline!void Line::draw()!. Aquí se implementa el
+algoritmo de Bresenham. Éste usa las funciones apropiadas de OpenGL/GLUT para dibujar
+la línea. Esta versión del algoritmo de Bresenham está principalmente basada en
+la versión de \citeauthor{bresenham} (\citeyear{bresenham}). Su presentación no sólo
+contiene una buena implementación del algoritmo, también una de las mejores explicaciones
+que he encontrado de él.

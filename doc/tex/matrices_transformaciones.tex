@@ -4,7 +4,7 @@
 \subsection{La clase \lstinline{Matrix}}
 
 La clase \lstinline!Matrix! es la encargada de representar una matriz en general.
-Está definida en los archivos \lstinline!Matrix.cpp! y \lstinline!Matrix.h!
+Está definida en los archivos \lstinline!Matrix.h! y \lstinline!Matrix.cpp!
 
 Si bien sólo se requieren usar matrices de $3\times3$ y, $3\times1$ para este proyecto,
 encontré que el diseño sería más simple de razonar si contaba con una matriz general.
@@ -47,12 +47,13 @@ con ellas en términos gemétricos podría separarse en su propia clase, \lstinl
 \subsection{La clase \lstinline!PointTransformer!}
 
 La clase \lstinline!PointTransformer! es la encargada de usar mátrices para realizar
-transformaciones geométricas en puntos (véase \ref{primitivas_dibujo} para la explicación
-de cómo se implementa un punto con la clase \lstinline!Point!).
+transformaciones geométricas en puntos (véase la sección \ref{primitivas_dibujo} para la explicación
+de cómo se implementa un punto con la clase \lstinline!Point!). Está definida en los
+archivos \lstinline!PointTransformer.h! y \lstinline!PointTransformer.cpp!.
 
 La idea es que toda figura que desee realizar transformaciones en puntos puede incluir un
 \lstinline!PointTransformer! como uno de sus atributos. Las clases para círculos,
-triángulos y cuadrados incluyen uno (véase \ref{figuras_geometricas}). La API debe llamarse
+triángulos y cuadrados incluyen uno (véase la sección \ref{figuras_geometricas}). La API debe llamarse
 en este orden:
 \begin{enumerate}
 	\item El pivote se asigna al momento de la construcción, con
