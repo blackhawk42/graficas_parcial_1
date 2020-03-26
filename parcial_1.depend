@@ -39,9 +39,8 @@
 	<GL/gl.h>
 	<GL/glu.h>
 
-1584907354 source:d:\dev\graficos\parcial_1\matrix.cpp
+1585185633 source:d:\dev\graficos\parcial_1\matrix.cpp
 	"Matrix.h"
-	<stdio.h>
 
 1584783926 d:\dev\graficos\parcial_1\matrix.h
 
@@ -73,16 +72,15 @@
 	"Line.h"
 	"PointTransformer.h"
 
-1584903489 d:\dev\graficos\parcial_1\pointtransformer.h
+1585192145 d:\dev\graficos\parcial_1\pointtransformer.h
 	"Matrix.h"
 	"Point.h"
 
-1585175444 source:d:\dev\graficos\parcial_1\pointtransformer.cpp
+1585192178 source:d:\dev\graficos\parcial_1\pointtransformer.cpp
 	"PointTransformer.h"
 	"Matrix.h"
 	"Point.h"
 	<cmath>
-	<stdio.h>
 
 1585180297 source:d:\dev\graficos\parcial_1\scene.cpp
 	"Scene.h"

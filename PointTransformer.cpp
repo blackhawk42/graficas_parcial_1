@@ -60,6 +60,14 @@ PointTransformer::~PointTransformer() {
     delete this->current;
 }
 
+Point *PointTransformer::getPivot() {
+	return this->pivot;
+}
+
+void PointTransformer::setPivot(Point *p) {
+	this->pivot = p;
+}
+
 void PointTransformer::translation(int dx, int dy) {
     this->translationIdentity.setValue(0, 2, dx);
     this->translationIdentity.setValue(1, 2, dy);

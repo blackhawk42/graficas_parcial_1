@@ -17,6 +17,9 @@ class PointTransformer {
         PointTransformer(Point *pivot);
         ~PointTransformer();
 
+        Point *getPivot();
+        void setPivot(Point *p);
+
         void translation(int dx, int dy);
         void scaling(double sx, double sy);
         void rotation(double angle);

@@ -48,9 +48,7 @@ void Line::draw() {
 
     glBegin(GL_POINTS);
 
-    //if ((0 <= x0) && (x0 < RDim) && (0 <= y0) && (y0 < RDim)) {
         glVertex2i(x0, y0);
-    //}
 
     if (dx > dy) {
         int fraction = dy - (dx >> 1);
@@ -62,9 +60,7 @@ void Line::draw() {
                 fraction -= dx;
             }
             fraction += dy;
-            //if ((0 <= x0) && (x0 < RDim) && (0 <= y0) && (y0 < RDim)) {
                 glVertex2i(x0, y0);
-            //}
         }
     }
     else {
@@ -80,9 +76,7 @@ void Line::draw() {
             y0 += stepy;
             fraction += dx;
 
-            //if ((0 <= x0) && (x0 < RDim) && (0 <= y0) && (y0 < RDim)) {
                     glVertex2i(x0, y0);
-            //}
         }
     }
 
