@@ -1,0 +1,36 @@
+\section{Escenario}
+\label{escenario}
+
+Si se tuviera que definir una interfaz para diferentes tipos de escenarios, probablemente
+consistiría simplemente en un método \lstinline!update()!, que actualiza todas las
+figuras y variables de control internas y dibuja las figuras.
+
+Actualmente existe sólo una clase en la categoría de ``escenarios'': la clase
+\lstinline!Scene!.
+
+\subsection{La clase \lstinline!Scene!}
+
+La clase \lstinline!Scene! implementa un escenario. Está definida en los archivos
+\lstinline!Scene.h! y \lstinline!Scene.cpp!.
+
+El archivo \lstinline!main.cpp!, el punto de inicio del programa, inicia una sóla
+instancia de ésta clase y llama a su método \lstinline!update()! en la función
+\lstinline!draw_function()!, a su vez llamada por la función \lstinline!glutDisplayFunc()!,
+cómo parte del ciclo de ejecución de OpenGL/GLUT.
+
+El escenario consiste en 24 figuras geométricas y demuestra todos los tipos de transformaciones
+en forma de simples animaciones.
+Lamentablemente, nunca he tenido instinto artístico. Le aseguro que si no hice náda
+más complejo o estético, fue por falta de tiempo y talento, no de ganas.
+De referencia, las figuras son: una casa, un carro moviéndose, un árbol creciendo
+y un hoja volando en el viento.
+
+El escenario está definido de manera muy estática. La posición de las figuras y sus
+animaciones son controladas de manera manual. Esto lo hice simplemente por simplicidad
+y falta de tiempo, pero implementar clases para figuras específicas (\lstinline!Casa!, \lstinline!Arbol!,
+etc.) sería sencillo de implementar.
+
+Mi mayor lamentación fue que, debido a mi poca familiaridad con C++ (este es literalmente
+mi primer proyecto en el lenguaje), no supe como inicializar arreglos en ciertas
+circunstancias, sin hacerlos dinámicos. Debido a esto, el código no es tan limpio
+como hubiera querido, pero traté de poner las instrucciones correctas en lugares lógicos.

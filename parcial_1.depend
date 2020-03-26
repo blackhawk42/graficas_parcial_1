@@ -20,7 +20,7 @@
 1584680140 d:\dev\graficos\parcial_1\line.h
 	"Point.h"
 
-1584694994 source:d:\dev\graficos\parcial_1\line.cpp
+1585194298 source:d:\dev\graficos\parcial_1\line.cpp
 	<GLUT/glut.h>
 	<windows.h>
 	<GL/glut.h>
