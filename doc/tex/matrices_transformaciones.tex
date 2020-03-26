@@ -1,0 +1,94 @@
+\section{Matrices y transformaciones geométricas}
+\label{matrices_transformaciones}
+
+\subsection{La clase \lstinline{Matrix}}
+
+La clase \lstinline!Matrix! es la encargada de representar una matriz en general.
+Está definida en los archivos \lstinline!Matrix.cpp! y \lstinline!Matrix.h!
+
+Si bien sólo se requieren usar matrices de $3\times3$ y, $3\times1$ para este proyecto,
+encontré que el diseño sería más simple de razonar si contaba con una matriz general.
+Por lo tanto, esta clase puede, en teoría, representar una matriz válida de cualquier
+dimensión, limitada sólo por la memoria del sistema. Dado que la matriz está en el
+corazón de muchas de las operaciones importantes en el sistema, me pareció importante
+que fuera tan robusta pero adaptable como fuera posible.
+
+Los valores de la matriz son representados con tipos \lstinline!double!, lo que permite
+trabajar con puntos decimales, especialmente en operaciones como escalado y rotación.
+Estó, por supuesto, conlleva un costo en términos de eficiencia, pero en clase se nos
+mencionó que éste costo era aceptable y necesario, al menos a nuestro nivel. Se encontró
+que, en la práctica, esto no parece afectar demasiado al sistema.
+
+Es posible que inadecuado manejo de errores de punto flotante sea la causa de un bug
+menor en la rotación. Se hablará de esto más adelante.
+
+La única operación matricial implementada es la de multiplicación. El método
+\lstinline!Matrix *Matrix::multiply(Matrix *other)! toma un puntero a otra matriz,
+\lstinline!other!, y la multiplica con la matriz que llamó al método\footnote{Cómo
+se ve en la definición, el método está definido no para el objeto \lstinline!Matrix!,
+sino para \emph{punteros} a un objeto \lstinline!Matrix!. Admito que esta es una práctica
+que heredé de C y Go, que me ha funcionado y en la que razono bien, pero desconozco si
+representa una buena o mala práctica en C++.}.
+
+Se usa el algoritmo $O(n^3)$, el más simple y menos eficiente en términos de complejidad de tiempo.
+Se nos informó en clase que éste sería suficiente, y en la práctica parece serlo.
+
+Notablemente, esta clase es la única que requirió el uso de alocamiento dinámico de
+memoria (i. e., las palabras clave \lstinline!new! y \lstinline!delete!). Esto
+debido a la naturaleza dinámica de las matrices durante su creación y a que la multiplicación
+regresa una matriz nueva, en vez de modificar otra como su resultado. Afortunadamente,
+no le temo \emph{tanto} a los punteros (al menos en proyectos de este tamaño; un poco
+más y correría a las colinas), y cuidados de manejo de memoria parecen haber evitado
+fugas de memoria importantes.
+
+Esta clase define únicamente la matriz general. Decidí que la lógica para interactuar
+con ellas en términos gemétricos podría separarse en su propia clase, \lstinline!PointTransformer!.
+
+\subsection{La clase \lstinline!PointTransformer!}
+
+La clase \lstinline!PointTransformer! es la encargada de usar mátrices para realizar
+transformaciones geométricas en puntos (véase \ref{primitivas_dibujo} para la explicación
+de cómo se implementa un punto con la clase \lstinline!Point!).
+
+La idea es que toda figura que desee realizar transformaciones en puntos puede incluir un
+\lstinline!PointTransformer! como uno de sus atributos. Las clases para círculos,
+triángulos y cuadrados incluyen uno (véase \ref{figuras_geometricas}). La API debe llamarse
+en este orden:
+\begin{enumerate}
+	\item El pivote se asigna al momento de la construcción, con
+	\lstinline!PointTransformer::PointTransformer(Point *pivot)!. (Por supuesto,
+	existe también un \lstinline!Point *PointTransformer::getPivot()! y un \lstinline!void PointTransformer::setPivot(Point *p)!).
+	\item La figura llama a la operación que desee realizar en sus puntos. Estas pueden
+	ser:
+	\begin{itemize}
+		\item \lstinline!void PointTransformer::translation(int dx, int dy)!
+		\item \lstinline!void PointTransformer::scaling(double sx, double sy)!
+		\item \lstinline!void PointTransformer::rotation(double angle)!
+	\end{itemize}
+	\item Se llama a \lstinline!void PointTransformer::apply(Point *p)!, pasándosele
+	el puntero al punto al que se le aplicará. Si hay varios puntos, se llama
+	al método por cada uno.
+\end{enumerate}
+
+En un principio, se consideró una API capaz de encadenar muchas operaciones para ser
+aplicadas de una vez. Decidí contra ello por limitaciones de tiempo y porque no se
+consideró crucial para la eficiencia, pero sé por
+seguro que refactorizar para hacerlo más flexible sería poco complicado.
+
+Una importante optimización se da en las matrices de identidad. Cada \lstinline!PointTransformer!
+contiene 4 matrices de identidad: la ``estándar'' (la verdadera
+``matriz identidad'' de acuerdo a la definición matemática), y las identidades para
+la traslación, rotación	y escalamiento vistas en clase. Me dí cuenta que, como la
+API siempre se llama en el mismo orden, la transformación de una figura no interviene
+con otras. Por lo tanto, las identidades pueden ser declaradas \lstinline!static!.
+Si no estoy mal, esto significa que, en vez de 4 matrices por cada \lstinline!PointTransformer!
+en el sistema (con 20 figuras, esto serían 80 matrices), las mismas 4 matrices
+son compartidas entre todos los \lstinline!PointTransformer!, sólo alterando
+los valores necesarios para cada transformación individual.
+
+Este diseño reduce tremendamente el uso de memoria, que sería probablemente el
+mayor inconveniente del proyecto. Por supuesto, tendría que hacerse una dura refactorización
+si se necesitaran hacer varias transformaciones individuales al mismo tiempo (e. g.,
+un sistema multihilo). Afortunadamente, no se mencionó nada sobre esto en los requerimientos,
+por lo que se determinó que este sistema cumplía con su objetivo de eficiencia dadas
+las circunstancias actuales.
